@@ -1,6 +1,6 @@
 import com.digitrends.builds.Calculator
 def call(Map pipelineParams) {
-    Calculator calculator = new Calculator(this)
+    Calculator calci = new Calculator(this)
     pipeline {
         agent any
         environment {
@@ -11,7 +11,7 @@ def call(Map pipelineParams) {
                 steps {
                     script {
                         echo "sum of 2 numbers"
-                        println calculator.addition(10,20)
+                        println calci.addition(10,20)
                         echo "Microservice is : ${APP_NAME}"
                     }
                 }
@@ -20,7 +20,7 @@ def call(Map pipelineParams) {
                 steps {
                     script {
                         echo "Multiplication of 2 numbers"
-                        println calculator.multiplication(10,20)
+                        println calci.multiplication(10,20)
                     }
                 }
             }
