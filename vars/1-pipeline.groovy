@@ -1,7 +1,10 @@
 import com.digi-trends.builds.Calculator
 Calculator calci = new Calculator(this)
 pipeline {
-    agent any 
+    agent any
+    environment {
+        APPLICATION_NAME = "${pipelineParams.appName}"
+    }
     stages {
         stage ('AdditionStage') {
             steps {
@@ -9,6 +12,7 @@ pipeline {
                     echo "sum of 2 numbers"
                     println calci.add()
                     println calci.addition(20,40)
+                    echo "My microservice name: ${APPLICATION_NAME}"
                 }
             }
         }
