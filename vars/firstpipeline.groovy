@@ -1,18 +1,14 @@
-import com.digitrends.builds.Calculator
+import com.accenture.builds.Calculator
 def call(Map pipelineParams) {
     Calculator calci = new Calculator(this)
     pipeline {
         agent any
-        environment {
-            APP_NAME = "${pipelineParams.appName}"
-        }
         stages {
             stage ('AdditionStage') {
                 steps {
                     script {
-                        echo "sum of 2 numbers"
-                        println calci.addition(10,20)
-                        echo "Microservice is : ${APP_NAME}"
+                        echo "Sum of 2 numbers"
+                        println calci.addition(15,20)
                     }
                 }
             }
@@ -20,15 +16,26 @@ def call(Map pipelineParams) {
                 steps {
                     script {
                         echo "Multiplication of 2 numbers"
-                        println calci.multiplication(10,20)
+                        println calci.multi(30,20)
                     }
                 }
             }
             stage ('Mail') {
                 steps {
-                    echo "Sending an email"
+                    echo "Sending an email !!!"
                 }
             }
         }
-    }  
+        post {
+            always {
+                mail(
+                    def subject = "Jenkins Job status"
+                    def body = "Jenkins Build number is: ${currentBuild.number}\n" + "Jenkins job status: ${currentBuild.currentResult}\n" + "Jenkins Build url: ${env.BUILD_URL}"
+                    to: "padmajaganji111@gmail.com",
+                    subject: subject,
+                    body: body
+                )
+            }
+        }
+    }
 }
