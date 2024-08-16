@@ -13,7 +13,7 @@ def call(Map pipelineParams) {
                 steps {
                     script {
                         echo "sum of 2 numbers"
-                        println calculator.add()
+                        println calculator.addition(10,20)
                         echo "My microservice name: ${APPLICATION_NAME}"
                     }
                 }
