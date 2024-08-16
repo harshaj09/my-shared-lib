@@ -14,6 +14,6 @@ class Calculator {
         return x+y
     }
     def multiplication(p,q) {
-        return x*y
+        return p*q
     }
 }
