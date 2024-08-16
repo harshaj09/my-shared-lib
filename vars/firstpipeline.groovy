@@ -1,4 +1,4 @@
-import com.digitrends.builds.Calculator
+import com.digitrends.builds.calculator
 def call(Map pipelineParams) {
     Calculator calculator = new Calculator(this)
     pipeline {
