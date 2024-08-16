@@ -28,13 +28,11 @@ def call(Map pipelineParams) {
         }
         post {
             always {
-                mail(
-                    def subject = "Jenkins Job status"
-                    def body = "Jenkins Build number is: ${currentBuild.number}\n" + "Jenkins job status: ${currentBuild.currentResult}"
-                    to: "padmajaganji111@gmail.com",
-                    subject: subject,
-                    body: body
-                )
+                script {
+                    def subject = "Jenkins Job status: ${currentBuild.currentResult}"
+                    def body = "Build Number is: ${currentBuild.number}\n" + "Job status is: ${currentBuild.currentResult}\n" + "Job URL: ${env.BUILD_URL}"
+                    mail ( to: "padmajaganji111@gmail.com", subject: subject, body: body )
+                }
             }
         }
     }
