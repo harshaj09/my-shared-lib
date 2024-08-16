@@ -1,5 +1,5 @@
 import com.digi-trends.builds.Calculator
-Calculator calci = new Calculator(this)
+Calculator calculator = new Calculator(this)
 pipeline {
     agent any
     environment {
@@ -10,8 +10,8 @@ pipeline {
             steps {
                 script {
                     echo "sum of 2 numbers"
-                    println calci.add()
-                    println calci.addition(20,40)
+                    println calculator.add()
+                    println calculator.addition(20,40)
                     echo "My microservice name: ${APPLICATION_NAME}"
                 }
             }
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     echo "Multiplication of 2 numbers"
-                    println calci.multiplication(10,20)
+                    println calculator.multiplication(10,20)
                 }
             }
         }
