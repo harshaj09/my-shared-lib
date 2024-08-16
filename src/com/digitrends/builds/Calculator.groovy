@@ -7,7 +7,7 @@ class Calculator {
     def add() {
         firstnumber = 10
         secondnumber = 20
-        sum = firstnumber + secondnumber
+        sum = firstnumber+secondnumber
         println sum
     }
     def addition(x,y) {
