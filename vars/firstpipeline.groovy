@@ -2,9 +2,7 @@ import com.digitrends.builds.Calculator
 def call(Map pipelineParams) {
     Calculator calculator = new Calculator(this)
     pipeline {
-        agent {
-            label "slave"
-        }
+        agent any
         environment {
             APP_NAME = "${pipelineParams.appName}"
         }
