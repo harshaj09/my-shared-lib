@@ -1,4 +1,4 @@
-package com.digi-trends.builds;
+package com.digitrends.builds;
 class Calculator {
     def jenkins // defining a member variable
     Calculator(jenkins) { // creating constructer with a parameter 
