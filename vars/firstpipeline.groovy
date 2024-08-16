@@ -14,7 +14,6 @@ def call(Map pipelineParams) {
                     script {
                         echo "sum of 2 numbers"
                         println calculator.add()
-                        println calculator.addition(20,40)
                         echo "My microservice name: ${APPLICATION_NAME}"
                     }
                 }
