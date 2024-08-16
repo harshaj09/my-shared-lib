@@ -1,4 +1,4 @@
-import com.digi-trends.builds.Calculator
+import com.digitrends.builds.Calculator
 Calculator calculator = new Calculator(this)
 pipeline {
     agent any
